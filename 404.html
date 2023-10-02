@@ -39,7 +39,7 @@
     rightside: true,
   },
   autoDarkmode: true
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"页面没有找到",isPost:!1,isHome:!1,isHighlightShrink:!1,isToc:!1,postUpdate:"2023-10-01 20:18:46"}</script><noscript><style type="text/css">#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"页面没有找到",isPost:!1,isHome:!1,isHighlightShrink:!1,isToc:!1,postUpdate:"2023-10-02 11:18:42"}</script><noscript><style type="text/css">#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
     win.saveToLocal = {
       set: function setWithExpiry(key, value, ttl) {
         if (ttl === 0) return
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
 
   window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
 })()</script></div><script>window.addEventListener('load', () => {
-  const changeContent = content => {
+  const changeContent = (content) => {
     if (content === '') return content
 
     content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
@@ -239,6 +239,39 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
     return content
   }
 
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://cody.zeabur.app',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
   const generateHtml = array => {
     let result = ''
 
@@ -250,7 +283,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
           const name = 'src'
           result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
         }
-
+        
         result += `<div class='content'>
         <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
         <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
@@ -266,31 +299,9 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
     window.pjax && window.pjax.refresh($dom)
   }
 
-  const getComment = async () => {
-    try {
-      const res = await fetch('https://hexo-blog-waline-at1rwktm5-codyjwangs-projects.vercel.app//api/comment?type=recent&count=6', { method: 'GET' })
-      const result = await res.json()
-      const walineArray = result.data.map(e => {
-        return {
-          'content': changeContent(e.comment),
-          'avatar': e.avatar,
-          'nick': e.nick,
-          'url': e.url + '#' + e.objectId,
-          'date': e.time || e.insertedAt
-        }
-      })
-      saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
-      generateHtml(walineArray)
-    } catch (err) {
-      console.error(err)
-      const $dom = document.querySelector('#card-newest-comments .aside-list')
-      $dom.textContent= "无法获取评论，请确认相关配置是否正确"
-    }
-  }
-
   const newestCommentInit = () => {
     if (document.querySelector('#card-newest-comments .aside-list')) {
-      const data = saveToLocal.get('waline-newest-comments')
+      const data = saveToLocal.get('twikoo-newest-comments')
       if (data) {
         generateHtml(JSON.parse(data))
       } else {
