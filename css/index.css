@@ -6895,6 +6895,175 @@ div.timenode:hover .meta:after {
   background: var(--sco-theme-op);
   transform: scale(1);
 }
+.search-dialog {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  z-index: 1001;
+  display: none;
+  margin-left: -15rem;
+  padding: 1rem;
+  width: 30rem;
+  box-shadow: var(--sco-shadow-lightblack);
+  background: var(--sco-card-bg);
+  border: var(--style-border);
+  transition: 0.3s;
+  border-radius: 8px;
+}
+.search-dialog:hover {
+  border: var(--style-border-hover);
+  box-shadow: var(--sco-shadow-theme);
+}
+@media screen and (max-width: 768px) {
+  .search-dialog {
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.search-dialog .search-close-button {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  color: var(--sco-gray);
+  font-size: 1.4em;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out 0s;
+}
+.search-dialog .search-close-button:hover {
+  color: var(--sco-main);
+}
+.search-dialog #algolia-input-panel {
+  margin-bottom: 8px;
+}
+.search-dialog .search-box,
+.search-dialog .ais-SearchBox {
+  padding-top: 8px;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+}
+.search-dialog .search-box input,
+.search-dialog .ais-SearchBox input,
+.search-dialog .search-box .ais-SearchBox-input,
+.search-dialog .ais-SearchBox .ais-SearchBox-input {
+  height: 100%;
+  width: 100%;
+  padding: 0.25rem 0.7rem;
+  outline: 0;
+  border: var(--style-border);
+  border-radius: 8px;
+  background: var(--sco-secondbg);
+  color: var(--sco-fontcolor);
+}
+.search-dialog .search-box input:focus,
+.search-dialog .ais-SearchBox input:focus,
+.search-dialog .search-box .ais-SearchBox-input:focus,
+.search-dialog .ais-SearchBox .ais-SearchBox-input:focus {
+  border: var(--style-border-hover);
+}
+.search-dialog .ais-Pagination .ais-Pagination-item--disabled {
+  visibility: hidden;
+}
+.search-dialog #search-results {
+  padding: 8px;
+  max-height: calc(80vh - 130px);
+  overflow-y: auto;
+}
+@media screen and (max-width: 768px) {
+  .search-dialog #search-results {
+    max-height: 80vh !important;
+  }
+}
+.search-dialog .ais-Hits-list {
+  padding: 0;
+}
+.search-dialog .ais-Hits-item {
+  margin: 10px 0;
+}
+.search-dialog .algolia-hit-item-content {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 14px;
+  color: var(--sco-gray);
+}
+.search-dialog .algolia-hit-item-link {
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+}
+.search-dialog mark {
+  color: var(--sco-theme);
+  font-style: normal;
+  background: var(--sco-card-bg);
+}
+.search-dialog .ais-Hits--empty {
+  text-align: center;
+  font-weight: 600;
+}
+.search-dialog .ais-Pagination-list {
+  margin: 0.2rem 0 0;
+  padding: 0;
+  text-align: center;
+}
+.search-dialog .ais-Pagination-item.pagination-item {
+  margin: 0 0.2rem;
+  padding: 0;
+  display: inline-block;
+}
+.search-dialog .ais-Pagination-item.pagination-item a {
+  border-radius: 4px;
+  background: var(--sco-main);
+  color: var(--sco-white);
+  cursor: pointer;
+  display: inline-block;
+  min-width: 1.2rem;
+  text-align: center;
+  line-height: 1.2rem;
+}
+.search-dialog .search-dialog__title {
+  font-weight: 700;
+  padding: 0 0 0.7rem;
+  color: var(--sco-main);
+  font-size: 1.4em;
+  line-height: 1;
+}
+.search-dialog #algolia-tips {
+  padding-top: 12px;
+  color: var(--sco-secondtext);
+  right: 0;
+  margin: auto;
+}
+.search-dialog #algolia-tips #algolia-stats {
+  margin-bottom: 10px;
+  color: var(--sco-gray);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.search-dialog #algolia-tips .algolia-tips-text {
+  margin-left: 0.4rem;
+}
+.search-dialog #algolia-search-results {
+  padding-top: 8px;
+}
+#search-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateZ(0);
+  background: var(--sco-maskbgdeep);
+}
 #console {
   display: flex;
   position: fixed;
@@ -7314,6 +7483,131 @@ div.timenode:hover .meta:after {
   background: var(--sco-logo-color);
   animation: gradient 2s ease infinite;
   background-size: 200%;
+}
+#loading-box {
+  -webkit-user-select: none;
+}
+#loading-box .loading-bg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: var(--sco-background);
+  z-index: 1999;
+  opacity: 1;
+  transition: 0.2s;
+  pointer-events: all;
+  animation: showLoading 0.3s 0s backwards;
+}
+#loading-box.loaded .loading-bg {
+  pointer-events: none;
+  transition: 0.2s;
+  animation: hideLoading 0.3s 0s forwards;
+}
+#loading-box .loading-img {
+  width: 100px;
+  margin: auto;
+  animation-duration: 0.2s;
+  animation-name: loadingAction;
+  border-radius: 50px;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@-moz-keyframes loadingAction {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+@-webkit-keyframes loadingAction {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+@-o-keyframes loadingAction {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+@keyframes loadingAction {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+@-moz-keyframes hideLoading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes hideLoading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-o-keyframes hideLoading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes hideLoading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-moz-keyframes showLoading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes showLoading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes showLoading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes showLoading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .comment-barrage {
   position: fixed;

@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>记网站诞生 | 小王的博客</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="https://bu.dusays.com/2023/11/08/654af68b25bb8.jpg"><!-- index.css--><link rel="stylesheet" href="/css/index.css"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><link rel="stylesheet" href="/lib/snackbar.min.css"><!-- comment--><!-- pace 胶囊加载条(Capsule loading bar)--><script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script><!-- search--><script src="https://cdn.staticfile.org/instantsearch.js/4.56.10/instantsearch.production.min.js"></script><script src="https://cdn.staticfile.org/algoliasearch/4.20.0/algoliasearch-lite.umd.min.js"></script><!-- aplayer--><!-- swiper--><!-- echarts--><!-- 灰色纪念日(Gray Anniversary)--><!-- Open Graph--><meta name="description" content="本文章不断更新中… 由于更换了主题，本文章已过期，待修改 ¶网站发展历程 ¶2023 09-15今天晚自习被我的老师“浓茗公”给装到，心头痒痒的 09-16对标浓茗公小站及其附属网站鼎成学习导航，开始建站 10-01不断地学习、实践、出错、学习、改错、优化，终于，网站的雏形完成了！ ¶未来 完善"><!-- pwa--><script>(win => {
+        win.saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay,
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        }
+
+        const DarkModeStatus = localStorage.getItem('theme')
+        if (DarkModeStatus !== null) {
+            if (DarkModeStatus === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        }
+
+        const asideStatus = saveToLocal.get('aside-status')
+        if (asideStatus !== undefined) {
+            if (asideStatus === 'hide') {
+                document.documentElement.classList.add('hide-aside')
+            } else {
+                document.documentElement.classList.remove('hide-aside')
+            }
+        }
+    }
+)(window)
+
+console.log(
+    "%c🔥 程序：Hexo | 主题：Hexo-Theme-Solitude | 作者：王卓Sco、亦封 | Github: https://github.com/DuoSco/Hexo-theme-solitude | 版本：v1.3.1 😄",
+    "color: #fff; background: linear-gradient(-25deg, #a8edea, #fed6e3); padding: 8px 15px; border-radius: 8px; text-shadow: 2px 2px 4px white; color: black;"
+);
+</script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script></div><!-- custom inject--><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: {"appId":"Q6MNTPD0JD","apiKey":"32e15c69fa8735f2e5904b4ebe79ef4d","indexName":"Hexo-Solitude","hits":{"per_page":6}},
+    localsearch: undefined,
+    runtime: '2023-09-16 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.png'
+    },
+    hightlight: {
+        enable: false,
+        limit: 200,
+        expand: false,
+        copy: true,
+    },
+    lightbox: true,
+    randomlinks: false,
+    lang: {
+        theme: {
+            dark: '已切换至深色模式',
+            light: '已切换至浅色模式',
+        },
+        copy: {
+            success: '复制成功',
+            error: '复制失败',
+        },
+        backtop: '返回顶部',
+        time: {
+            recent: '最近',
+            yesterday: '昨天',
+            berforeyesterday: '前天',
+            daybefore: '天前',
+            runtime: '天',
+        },
+        sayhello: {
+            morning: `一日之计在于晨`,
+            noon: `吃饱了才有力气干活`,
+            afternoon: `集中精力，攻克难关`,
+            night: `不要太劳累了，早睡更健康`,
+            goodnight: `睡个好觉，保证精力充沛`,
+        },
+        search: {
+            empty: '找不到你查询的内容：${query}',
+            hit: '找到 ${hits} 条结果，用时 ${time} 毫秒',
+            placeholder: '输入关键词快速查找',
+        }
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: {
+        enable: false,
+        type: '',
+        commentBarrage: true,
+        randomInfoStart: ["聪敏的","可爱的","美丽的"],
+        randomInfoEnd: ["白菜","小可爱","小仙女"],
+        twikoo: {
+            url: '',
+            accessToken: ''
+        },
+        waline: {
+            url: '',
+        }
+    },
+    rightside: {
+        enable: false
+    },
+    ai:{
+        enable: false,
+        key: '',
+        talk: '我是王卓Sco开发的摘要生成助理ScoGPT，ScoGPT在静态部署时进行摘要的撰写，并且在访客访问时通过ScoCorrection转译后的文本摘要实现工具。我在这里只负责已经生成的摘要显示，你无法与我直接沟通，但我可以回答一些预设的问题。',
+        randomPost: false,
+    },
+    music:{
+        enable: false,
+    }
+}</script><meta name="generator" content="Hexo 7.1.0"></head><body id="body"><canvas id="universe"></canvas><!-- loading--><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img" src= "/img/loading.gif" data-lazy-src="/images/avatar.png" alt="loading image"></div></div><script>const preloader = {
+    endLoading: () => {
+        document.getElementById('loading-box').classList.add('loaded');
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+    },
+    removePaceDone: () => {
+        document.getElementById('body').classList = 'pace-done';
+    }
+}
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});</script><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="scoicon sco-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="scoicon sco-moon-clear-fill"></i></a></div><div class="console-btn-item" id="consoleHideAside"><a class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="scoicon sco-side-bar-fill"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"><a class="commentBarrage"><i class="scoicon sco-chat-fill"></i></a></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="scoicon sco-moon-clear-fill"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/DuoSco/Hexo-Theme-solitude" title="Solitude"><img class="back-menu-item-icon" src="https://bu.dusays.com/2023/11/08/654af68b25bb8.jpg" alt="项目"><span class="back-menu-item-text">Solitude</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="scoicon sco-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="scoicon sco-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="scoicon sco-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="scoicon sco-wifi-fill"></i><span>鱼塘</span></a></li><li><a class="site-page child" href="/links/"><i class="scoicon sco-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="scoicon sco-gift-fill"></i><span>宝藏博主</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/equipment/"><i class="scoicon sco-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/tlink/"><i class="scoicon sco-tools-fill"></i><span>工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="scoicon sco-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon scoicon sco-more-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/DuoSco/Hexo-Theme-solitude" title="Solitude"><img class="back-menu-item-icon" src="https://bu.dusays.com/2023/11/08/654af68b25bb8.jpg" alt="项目"><span class="back-menu-item-text">Solitude</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页" target="_self"><i class="scoicon scoicon sco-logo" style="font-size: 16px;"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">记网站诞生</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="scoicon sco-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="scoicon sco-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="scoicon sco-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="scoicon sco-wifi-fill"></i><span>鱼塘</span></a></li><li><a class="site-page child" href="/links/"><i class="scoicon sco-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="scoicon sco-gift-fill"></i><span>宝藏博主</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/equipment/"><i class="scoicon sco-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/tlink/"><i class="scoicon sco-tools-fill"></i><span>工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="scoicon sco-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button"><a class="site-page" href="https://www.travellings.cn/go.html" rel="external nofollow noreferrer" title="开往-友链接力" target="_blank"><i class="scoicon sco-train-line"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="scoicon sco-signal-tower-fill"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer" title="搜索"><i class="scoicon sco-search-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="scoicon sco-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="scoicon sco-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="scoicon sco-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954" alt="记网站诞生"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">记网站诞生</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note  info flat"><p>本文章不断更新中…</p>
+</div>
+<div class="note  warning flat"><p>由于更换了主题，本文章已过期，待修改</p>
+</div>
+<h2 id="网站发展历程"><a class="headerlink" href="#网站发展历程">¶</a>网站发展历程</h2>
+<h3 id="2023"><a class="headerlink" href="#2023">¶</a>2023</h3>
+<div class="timeline"><div class="timenode"><div class="meta"><p>09-15</p></div><div class="body"><p>今天晚自习被我的老师“浓茗公”给装到，心头痒痒的</p></div></div>
+<div class="timenode"><div class="meta"><p>09-16</p></div><div class="body"><p>对标<a target="_blank" rel="noopener external nofollow noreferrer" href="https://dingcheng.ah.cn">浓茗公小站</a>及其附属网站<a target="_blank" rel="noopener external nofollow noreferrer" href="https://dingcheng.ah.cn/nav/">鼎成学习导航</a>，开始建站</p></div></div>
+<div class="timenode"><div class="meta"><p>10-01</p></div><div class="body"><p>不断地学习、实践、出错、学习、改错、优化，终于，网站的雏形完成了！</p></div></div></div>
+<h3 id="未来"><a class="headerlink" href="#未来">¶</a>未来</h3>
+<div class="timeline"><div class="timenode"><div class="meta"><p></p></div><div class="body"><p>完善基本内容以及附属的<a href="/nav/">导航站</a>。至此，完成对<a target="_blank" rel="noopener external nofollow noreferrer" href="https://dingcheng.ah.cn">浓茗公小站</a>的复刻</p></div></div>
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><p>美化网站，并加入一些稍高级点的功能，如评论等。至此，本网站将超越<a target="_blank" rel="noopener external nofollow noreferrer" href="https://dingcheng.ah.cn">浓茗公小站</a><s>成为宇宙第一牛掰网站</s>！</p></div></div>
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><p>继续改进，加入一些高级的、新奇的功能</p></div></div>
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><p>专注于产出内容</p></div></div></div>
+<br>
+<hr>
+<br>
+<h2 id="建站过程"><a class="headerlink" href="#建站过程">¶</a>建站过程</h2>
+<div class="note  warning flat"><p>由于编写不及时，导致<a href="#%E9%85%8D%E7%BD%AE%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F">配置评论系统</a>以及之前的部分并不完善。</p>
+</div>
+<p>为什么要把建站过程也写出来呢，<s>这不就把我的底裤给暴露出来了吗？</s><br>
+其实我是写给自己看的，因为随着网站功能越来越多，我渐渐忘了我究竟都干了些什么，维护起来很不方便。</p>
+<h3 id="选择博客框架"><a class="headerlink" href="#选择博客框架">¶</a>选择博客框架</h3>
+<p>目前主要有两款很好用的博客框架，WordPress 和 Hexo。简单来说，WordPress 功能强大、易于维护，Hexo 是静态的、维护成本高，这么看来，WordPress 貌似更好。但是，搭建网站需要服务器呀，作为学生党的我哪里买得起！本着能白嫖就白嫖的原则，我选择了 <code>Hexo</code> + <code>Github Pages</code> 这一经典组合。<br>
+后来，我崩溃了，这也太难维护了吧！</p>
+<h3 id="搭建网站雏形"><a class="headerlink" href="#搭建网站雏形">¶</a>搭建网站雏形</h3>
+<p>这部分呢，难不倒作为高级 CV 工程师的我，只需发动我的看家本领 <code>Ctrl + C</code> <code>Ctrl + V</code> 便可搞定，轻轻松松(～￣▽￣)～<br>
+最终我选择了 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://butterfly.js.org/">Butterfly</a> 博客主题和 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/WebStackPage/WebStackPage.github.io">WebStack</a> 导航主题。这部分的详细过程我就懒得写了。</p>
+<h3 id="实现数学公式、流程图的渲染"><a class="headerlink" href="#实现数学公式、流程图的渲染">¶</a>实现数学公式、流程图的渲染</h3>
+<div class="tabs" id="渲染"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#渲染-1">渲染器</button></li><li class="tab"><button type="button" data-href="#渲染-2">数学公式</button></li><li class="tab"><button type="button" data-href="#渲染-3">流程图</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="渲染-1"><p>常见的渲染器有：<br>
+hexo-renderer-marked<br>
+hexo-renderer-kramed<br>
+hexo-renderer-pandoc<br>
+hexo-renderer-markdown-it<br>
+hexo-renderer-markdown-it-plus</p>
+<p>本网站最终选择了 <code>hexo-renderer-pandoc</code></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="渲染-2"><p>数学公式渲染引擎主要有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">J</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\rm{MathJax}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">MathJax</span></span></span></span></span></span> 和 \rm{K\kern-.2em\raise.21em{\scriptstyle{A}}\kern-.17em T\kern-.14em\lower.5ex{E}\kern-.115em X} 两类。</p>
+<p>Butterfly 主题推荐 \rm{K\kern-.2em\raise.21em{\scriptstyle{A}}\kern-.17em T\kern-.14em\lower.5ex{E}\kern-.115em X} ，我也就无脑选择了它，但是随之而来的是其使用的 Markdown 渲染插件 <code>hexo-renderer-markdown-it</code> 带来的一些问题。然后我决定换用其它渲染插件，一并把数学公式渲染引擎也换成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">J</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\rm{MathJax}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">MathJax</span></span></span></span></span></span> 。</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>MathJax</mtext></mrow><annotation encoding="application/x-tex">\text{MathJax}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">MathJax</span></span></span></span></span> 唯一的缺点是渲染慢，但想想我的文章中不会出现太多公式，所以也就无所谓了。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="渲染-3"><p>这个很好配置，Butterfly 内置了 Mermaid 图表工具，只需把开关打开即可。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+<h3 id="配置搜索引擎"><a class="headerlink" href="#配置搜索引擎">¶</a>配置搜索引擎</h3>
+<p>一开始是通过 <code>hexo-algoliasearch</code> 插件使用了 Algolia 的搜索服务。等 DocSearch 的申请通过后，换成了 DocSearch。DocSearch 其实也是 Algolia 家的。</p>
+<p>在这期间，我被 Algolia 推荐了 GitGuardian，正在试用。</p>
+<h3 id="配置评论系统"><a class="headerlink" href="#配置评论系统">¶</a>配置评论系统</h3>
+<p>这部分真是花费了很大心思，也正是因此才写这篇建站过程的。</p>
+<p>一开始我选择了 Giscus，因为这个的配置最简单，但是使用体验并不好。后来我又选择了 Waline，挺好看的，用到了 Vercel 和 LeanCloud(国际版) 服务，但是很可惜被墙了，国内网络访问不了。</p>
+<p>最后我选择了 Twikoo，但是对于部署平台仍有多种选择，如 Netlify、Zeabur 等。我用 GitHub 注册了 Netlify，也进行身份验证了，但是登录不上去，然后换用 QQ 邮箱注册，竟然连注册都不行，就很迷惑。百般无奈，只好选用 Zeabur 了。这玩意儿挺强大的，但是免费版只有 7 天时限，到期前需要你手动延期，每次还只能延到 7 天，真™折磨人！还用了 MongoDB 的免费数据库，这个就挺好的。</p>
+<p>评论系统的消息推送服务我选的是 Qmsg，网页端能收到，而 QQ 机器人却无推送，弃了。然后选了 Server 酱，微信端的，但是由于腾讯的不支持，在电脑端不好用，弃了。最后选了 pushplus(推送加)。</p>
+<p>反垃圾服务选的是 Akismet，免费版的限制是：网站应具有非商业性质，其中一点是不得插入广告。这，我还想赚点小钱来着。</p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src= "/img/loading.gif" data-lazy-src="/images/avatar.png"></a><div class="post-copyright__author_name">小王的博客</div><div class="post-copyright__author_desc">网站搭建中...</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">小王的博客</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/p/76bd997c/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">本站食用指南</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">一日之计在于晨</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src= "/img/loading.gif" data-lazy-src="/images/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/12/30/659011053e246.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Cody Wang</div><div class="author-info__desc">网站搭建中...</div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/CodyJWang/" title="Github"><i class="scoicon sco-github-line"></i></a><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.bilibili.com/" title="Bilibili"><i class="scoicon sco-bilibili-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="scoicon sco-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-text">网站发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023"><span class="toc-text">2023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5"><span class="toc-text">未来</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B"><span class="toc-text">建站过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-text">选择博客框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99%E9%9B%8F%E5%BD%A2"><span class="toc-text">搭建网站雏形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E3%80%81%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E6%B8%B2%E6%9F%93"><span class="toc-text">实现数学公式、流程图的渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="toc-text">配置搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">配置评论系统</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="scoicon sco-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/76bd997c/" title="本站食用指南"><img alt="本站食用指南" src= "/img/loading.gif" data-lazy-src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954"></a><div class="content"><a class="title" href="/p/76bd997c/" title="本站食用指南">本站食用指南</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/efe86e48/" title="记网站诞生"><img alt="记网站诞生" src= "/img/loading.gif" data-lazy-src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954"></a><div class="content"><a class="title" href="/p/efe86e48/" title="记网站诞生">记网站诞生</a></div></div></div></div></div></div></main><footer id="footer"><div id="sco-footer-bar"><div class="footer-logo"><i class="scoicon scoicon sco-logo"></i></div><div class="footer-bar-description">来自小王的博客 - 网站搭建中...的文章</div><a class="footer-bar-link" href="/">了解更多</a></div><div id="footer_deal"><div class="footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src= "/img/loading.gif" data-lazy-src="/images/avatar.png" alt="返回顶部"></div></div><div id="sco-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">Cody Wang</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/DuoSco/hexo-theme-solitude">主题</a><a class="footer-bar-link cc" href="/copyright/"><i class="scoicon sco-copyright-line"></i><i class="scoicon sco-creative-commons-by-line"></i><i class="scoicon sco-creative-commons-nc-line"></i><i class="scoicon sco-creative-commons-nd-line"></i></a></div></div></div><div class="needEndHide" id="cookies-window"><div class="cookies-window-title">协议提醒助手</div><div class="cookies-window-content"><span class="cookies-tip">查看本站为你的个人隐私做出的努力</span><a class="cookies-link" href="/privacy/" title="本站如何保护你的隐私"><i class="scoicon sco-right-btn-fill"></i></a></div></div><div class="comment-barrage needEndHide"></div></footer></div><!-- inject body--><script src="https://cdn.staticfile.org/pjax/0.2.8/pjax.min.js"></script><script src="/lib/lazyload.min.js"></script><script src="/lib/snackbar.min.js"></script><script src="/lib/view-image.min.js"></script><div id="js-pjax"><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: 'post',
+    toc: true,
+    comment: false,
+}
+</script></div><!-- post-ai)--><!-- waterfall--><!-- pjax--><script>let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax',
+    'meta[property^="og:"]',
+]
+
+const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+}
+initTheme()</script><script src="/lib/universe.min.js"></script><script>dark()</script><!-- music--><!-- inject custom body--><!-- search--><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">搜索</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><div id="search-results"><div id="algolia-hits"></div></div><div id="algolia-tips"><div id="algolia-pagination"></div><div id="algolia-stats"></div><i class="scoicon sco-algolia-fill"></i><span class="algolia-tips-text">Algolia 提供搜索服务</span></div><span class="search-close-button"><i class="scoicon sco-close-fill"></i></span></div><div id="search-mask"></div></div><script src="/js/extend/search/algolia-search.js"></script><!-- music--></body></html><script>const posts=["p/76bd997c/","p/efe86e48/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script>
